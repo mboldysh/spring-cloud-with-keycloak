@@ -1,0 +1,56 @@
+  version: '2.3'
+
+  services:
+    config:
+      build: config
+      ports:
+        - 8888:8888
+      restart: always
+      environment:
+        CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
+      logging:
+        options:
+          max-size: "10m"
+          max-file: "10"
+
+    discovery:
+      build: discovery
+      ports:
+        - 8761:8761
+      restart: always
+      environment:
+        CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
+      logging:
+        options:
+          max-size: "10m"
+          max-file: "10"
+      depends_on:
+        config:
+          condition: service_healthy
+
+    gateway:
+      build: gateway
+      ports:
+        - 4000:4000
+      restart: always
+      environment:
+        CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
+      logging:
+        options:
+          max-size: "10m"
+          max-file: "10"
+      depends_on:
+        config:
+          condition: service_healthy
+
+    test-service:
+      build: test-service
+      ports:
+        - 8000:8000
+      restart: always
+      environment:
+        CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
+      logging:
+        options:
+          max-size: "10m"
+          max-file: "10"
