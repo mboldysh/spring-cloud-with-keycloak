@@ -4,7 +4,7 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 20000
+            timeoutInMilliseconds: 21000
 
 ribbon:
   ReadTimeout: 20000
@@ -17,7 +17,6 @@ zuul:
     socket-timeout-millis: 20000
 
   routes:
-
     test-service:
       path: /test/**
       serviceId: test-service
