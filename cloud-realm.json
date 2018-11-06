@@ -1,0 +1,60 @@
+{
+    "realm" : "cloud",
+    "enabled" : "true",
+    "sslRequired": "external",
+    "users" : [
+        {
+            "username" : "user",
+            "enabled": true,
+            "email" : "sample-user@example",
+            "firstName": "Sample",
+            "lastName": "User",
+            "credentials" : [
+                { "type" : "password",
+                  "value" : "user" }
+            ],
+            "realmRoles": [ "role" ],
+            "clientRoles": {
+                "account": ["view-profile", "manage-account"]
+            }
+        }
+    ],
+    "roles" : {
+        "realm" : [
+            {
+                "name": "role",
+                "description": "User privileges"
+            },
+            {
+                "name": "admin",
+                "description": "Administrator privileges"
+            }
+        ]
+    },
+    "scopeMappings": [
+        {
+            "client": "spring-cloud-client",
+            "roles": ["user"]
+        }
+    ],
+    "clients": [
+        {
+            "clientId": "spring-cloud-client",
+            "enabled": true,
+            "publicClient": true,
+            "baseUrl": "/test/*",
+            "redirectUris": [
+                "http://localhost:4000/*"
+            ],
+            "webOrigins": []
+        }
+    ],
+    "clientScopeMappings": {
+        "account": [
+            {
+                "client": "spring-cloud-client",
+                "roles": ["view-profile"]
+            }
+        ]
+    }
+}
