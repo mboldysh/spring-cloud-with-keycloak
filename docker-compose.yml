@@ -69,6 +69,8 @@
       environment:
         KEYCLOAK_USER: admin
         KEYCLOAK_PASSWORD: admin
-        KEYCLOAK_IMPORT_REALM: cloud-realm.json
+        KEYCLOAK_IMPORT: /tmp/cloud-realm.json
       ports:
         - 8080:8080
+      volumes:
+        - ./cloud-realm.json:/tmp/cloud-realm.json
