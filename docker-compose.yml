@@ -44,6 +44,7 @@
           condition: service_healthy
         discovery:
           condition: service_healthy
+          
     test-service:
       build: test-service
       ports:
@@ -62,3 +63,14 @@
           condition: service_healthy
         gateway:
           condition: service_healthy
+
+    keycloak:
+      image: jboss/keycloak
+      environment:
+        KEYCLOAK_USER: admin
+        KEYCLOAK_PASSWORD: admin
+        KEYCLOAK_IMPORT: /tmp/cloud-realm.json
+      ports:
+        - 8080:8080
+      volumes:
+        - ./cloud-realm.json:/tmp/cloud-realm.json

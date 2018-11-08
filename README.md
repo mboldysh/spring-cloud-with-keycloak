@@ -8,6 +8,12 @@ Before you start export environment variable:
 export CONFIG_SERVICE_PASSWORD
 ```
 
+For correct local keycloak work you should add the following to /etc/hosts
+
+```console
+127.0.0.1 localhost gateway keycloak
+```
+
 Build and run project:
 
 ```consloe
@@ -26,3 +32,4 @@ docker-compose build
 ### Important endpoints
 - http://localhost:4000 - Gateway
 - http://localhost:8761 - Eureka Dashboard
+- http://localhost:8080 - Keycloak
