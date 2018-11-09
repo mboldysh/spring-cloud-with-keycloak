@@ -27,9 +27,14 @@ To rebuild docker images use:
 
 ```console
 docker-compose build
-``` 
+```
+
+Kibana default index pattern - cloud-*
 
 ### Important endpoints
 - http://localhost:4000 - Gateway
+- http://localhost:8888 - Config Service
 - http://localhost:8761 - Eureka Dashboard
 - http://localhost:8080 - Keycloak
+- http://localhost:9200 - Elasticsearch
+- http://localhost:5601 - Kibana
