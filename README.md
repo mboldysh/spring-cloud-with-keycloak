@@ -38,3 +38,4 @@ Kibana default index pattern - cloud-*
 - http://localhost:8080 - Keycloak
 - http://localhost:9200 - Elasticsearch
 - http://localhost:5601 - Kibana
+- http://localhost:9411 - Zipkin
