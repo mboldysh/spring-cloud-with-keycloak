@@ -2,3 +2,11 @@ server:
   servlet:
     context-path: /test
   port: 8000
+
+spring:
+  zipkin:
+    discoveryClientEnabled: false
+    baseUrl: http://zipkin:9411/
+  sleuth:
+    sampler:
+      probability: 0.6

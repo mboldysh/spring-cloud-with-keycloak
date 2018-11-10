@@ -81,6 +81,13 @@
       depends_on:
         - elasticsearch
 
+    zipkin:
+      image: openzipkin/zipkin
+      environment:
+        - STORAGE_TYPE=mem
+      ports:
+        - 9411:9411
+
     keycloak:
       image: jboss/keycloak
       environment:
