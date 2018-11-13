@@ -74,7 +74,7 @@
       depends_on:
         - elasticsearch
     logstash:
-      image: logstash:latest
+      image: logstash:6.4.1
       volumes:
         - ./logstash.conf:/tmp/logstash.conf
       command: logstash -f /tmp/logstash.conf
